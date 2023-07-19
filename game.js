@@ -34,15 +34,20 @@ function game() {
         console.log(`The player picked ${playerChoice}`);
         console.log(`The computer picked ${computerSelection}`)
         console.log(playRound(playerChoice, computerSelection));
-            if ((playerChoice === "rock" && computerSelection === "scissors") || (playerChoice === "paper" && computerSelection === "rock") || 
-            (playerChoice === "scissors" && computerSelection === "paper")) {
+            if (playRound(playerChoice, computerSelection).includes("Win")) {
                 console.log(`YOU: ${++yourScore}, COMPUTER: ${computerScore}`)
-            } else if ((playerChoice === "rock" && computerSelection === "paper") || (playerChoice === "paper" && computerSelection === "scissors") || 
-            (playerChoice === "scissors" && computerSelection === "rock")) {
+            } else if (playRound(playerChoice, computerSelection).includes("Lose")) {
                 console.log(`YOU: ${yourScore}, COMPUTER: ${++computerScore}`)
-            } else if (playerChoice === computerSelection) {
+            } else if (playRound(playerChoice, computerSelection).includes("tie")) {
                 console.log(`YOU: ${yourScore}, COMPUTER: ${computerScore}`)
             }
+    }
+    if (computerScore > yourScore) {
+        console.log("Defeat, game over!")
+    } else if (computerScore === yourScore) {
+        console.log("Well, it's a Draw, play again!")
+    } else {
+        console.log("Victory, you Win!")
     }
 }
 game();
