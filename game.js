@@ -8,50 +8,76 @@ function getComputerChoice() {
 
 const gameKey = document.querySelectorAll(".gameKey");
 
-let clicks = gameKey.forEach((key) => {
+let clickCount = 1;
+const maxClicks = 10;
+let youScore = 0;
+let computerScore = 0; 
+
+
+gameKey.forEach((key) => {
     key.addEventListener("click", () => {
         playerSelection = key.textContent;
         computerSelection = getComputerChoice();
-        playRound(playerSelection, computerSelection)    
-    })
-})
+    if (clickCount <= maxClicks) {
+        playRound(playerSelection, computerSelection); 
+        scoreCounter();
+        clickCount++
+        }
+    });
+});
 
-const div = document.querySelector("div");
+const body = document.querySelector("body");
+const script = document.querySelector("script")
 
 const roundResult = document.createElement("div");
-div.appendChild(roundResult);
+roundResult.classList.add("results");
+body.insertBefore(roundResult, script)
+
 const para = document.createElement("p");
 const paraComputerChoice = document.createElement("p");
+const roundPara = document.createElement("p")
+const scorePara = document.createElement("p");
+
 
 function playRound(playerSelection, computerSelection) {
-    computerSelection = getComputerChoice();
-    paraComputerChoice.textContent = `The Alien choose ${computerSelection}`;
+    paraComputerChoice.textContent = `The Alien chose ${computerSelection}`;
+    
     if (playerSelection === computerSelection) {
         para.textContent = "This round is a tie";
-        console.log("This is a tie")
-    } else if (playerSelection === "Rock" && computerSelection === "Paper") {
-        para.textContent = "You Lose this round!";
-        console.log("You Lose!")
-    } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
+    } else if (
+        (playerSelection === "Rock" && computerSelection === "Scissors") ||
+        (playerSelection === "Paper" && computerSelection === "Rock") ||
+        (playerSelection === "Scissors" && computerSelection === "Paper")
+    ) {
         para.textContent = "You Win this round!";
-        console.log("You Win!")
-    } else if (playerSelection === "Paper" && computerSelection === "Rock") {
-        para.textContent = "You Win this round!";
-        console.log("You Win!");
-    } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
+        youScore++;
+    } else {
         para.textContent = "You Lose this round!";
-        console.log("You Lose!");
-    } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
-        para.textContent = "You Lose this round!";
-        console.log("You Lose!")
-    } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
-        para.textContent = "You Win this round!";
-        console.log("You Win!");
+        computerScore++;
     }
+}
+
+function scoreCounter() {
+    if (clickCount === maxClicks) {
+        if (youScore > computerScore) {
+            para.textContent = "You win the game!";
+            
+        } else if (youScore < computerScore) {
+            para.textContent = "Computer wins the game!";
+        } else {
+            para.textContent = "It's a tie game!";
+        }
+    }
+    scorePara.textContent = `YOU: ${youScore}  COMPUTER: ${computerScore}`
+    roundPara.textContent = `ROUND: ${clickCount}`
 }
 
 roundResult.appendChild(paraComputerChoice);
 roundResult.appendChild(para);
+roundResult.appendChild(roundPara);
+roundResult.appendChild(scorePara);
+
+
 
 
 
