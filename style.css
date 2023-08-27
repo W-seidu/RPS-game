@@ -1,3 +1,16 @@
+:root {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(211, 198, 198);
+    display: flex;
+    gap: 60px;
+    flex-direction: column;
+}
+
+
 h1 {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
@@ -6,31 +19,66 @@ h1 {
     margin-bottom: 0;
 }
 
-body {
-    background-color: rgb(185, 179, 179);
-    display: flex;
-    gap: 60px;
-    flex-direction: column;
-}
 
-div {
+.gameKeys {
     display: flex;
     justify-content: center;
     gap: 1.5rem;
 }
 
-.results {
+.score-counter {
     display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin: auto;
+    gap: min(180px, 40vw);
+    justify-content: center;
 }
 
-.results p {
-    font-size: 1.4rem;
+.score-counter p:nth-child(1) {
+    font-size: 2rem;
+    font-weight: bold;
 }
+
+.score-counter p:nth-child(2) {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.results {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.results p:nth-child(1) {
+    color: rgb(223, 174, 50);
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: rgb(219, 25, 25);
+}
+
+
+.results p:nth-child(2) {
+    font-size: 1.7rem;
+    color: rgba(175, 31, 144, 0.993);
+}
+
 
 button {
     font-size: 2rem;  
-    border: none;  
+    background-color: rgb(145, 53, 231);  
+    border-radius: 90px;
+    padding: 30px;
+    width: 230px;
+}
+
+a {
+    position: relative;
+    top: 30px;
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: rgb(136, 41, 7);
+}
+
+a:hover {
+    color: rgb(201, 43, 109);
 }
