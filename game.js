@@ -70,13 +70,6 @@ function playRound(playerSelection, computerSelection) {
         userScorePara.style.color = "crimson";
         computerScore++;
     }
-    if (computerScore > yourScore) {
-        console.log("Defeat, game over!")
-    } else if (computerScore === yourScore) {
-        console.log("Well, it's a Draw, play again!")
-    } else {
-        console.log("Victory, you Win!")
-    }
 }
 
 function scoreCounter() {
