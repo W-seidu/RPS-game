@@ -50,7 +50,6 @@ h1 {
 }
 
 .results p:nth-child(1) {
-    color: rgb(223, 174, 50);
     font-size: 1.7rem;
     font-weight: bold;
     color: rgb(219, 25, 25);
@@ -81,4 +80,50 @@ a {
 
 a:hover {
     color: rgb(201, 43, 109);
+}
+
+@media (max-width:450px) {
+    body {
+        gap: 10px;
+        flex-direction: column;
+    }
+    h1 {
+        font-size: 1.1rem;
+        margin-top: 10px;
+        margin-bottom: 0;
+    }
+    button {
+        font-size: 1rem;  
+        padding: 20px;
+    }
+    .score-counter {
+        gap: 20vw;
+        justify-content: center;
+    }
+    .score-counter p:nth-child(1) {
+        font-size: 1rem;
+        font-weight: bold;
+    }
+    .score-counter p:nth-child(2) {
+        font-size: 1rem;
+        font-weight: bold;
+    }
+    .results {
+        gap: 3rem;
+    }
+    .results p:nth-child(1) {
+        font-size: 1.0rem;
+        font-weight: bold;
+        color: rgb(219, 25, 25);
+    }  
+    .results p:nth-child(2) {
+        font-size: 1.0rem;
+        color: rgba(175, 31, 144, 0.993);
+    }
+    a {
+        text-decoration: none;
+        font-size: 1.0rem;
+        color: rgb(136, 41, 7);
+        margin-top: -14px;
+    }
 }
