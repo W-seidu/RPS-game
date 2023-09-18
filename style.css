@@ -44,8 +44,7 @@ h1 {
 
 .results {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
     gap: 3rem;
 }
 
@@ -135,7 +134,10 @@ a:hover {
     }
 
     .results {
-        gap: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0px;
     }
 
     .results p:nth-child(1) {
@@ -144,11 +146,13 @@ a:hover {
     }
 
     .results p:nth-child(2) {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
+        font-weight: bold;
     }
 
     a {
         text-decoration: none;
-        font-size: 1.2rem;
+        font-size: 1.25rem;
+        font-weight: bold;
     }
 }
