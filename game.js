@@ -47,7 +47,7 @@ const para = document.createElement("p");
 const roundPara = document.createElement("p");
 
 const playAgain = document.createElement("a");
-playAgain.setAttribute("href", "file:///home/swordmachina/repo/RPS-game/index.html")
+playAgain.setAttribute("href", "https://w-seidu.github.io/RPS-game/")
 
 
 function playRound(playerSelection, computerSelection) { 
